@@ -18,7 +18,7 @@ def moving_lines():
         y = 743
 
     stroke(225)
-    line(0 + x, 530, 50 + x, 530)
+    line(3 + x, 530, 50 + x, 530)
     line(50 + x, 530, 70 + x, 500)
     line(70 + x, 500, 90 + x, 450)
     line(90 + x, 450, 120 + x, 420)
@@ -108,23 +108,20 @@ def moving_lines():
     line(690 + y, 545, 720 + y, 545)
     line(720 + y, 545, 735 + y, 485)
     line(735 + y, 485, 750 + y, 470)
-    line(750 + y, 470, 770 + y, 470)
-    line(770 + y, 470, 800 + y, 550)
+    line(750 + y, 470, 770 + y, 475)
+    line(770 + y, 475, 800 + y, 530)
     x -= 0.3
     y -= 0.3
 
 def play_screen():
     global action, x, y
     if action == 'Play':
-        x = 400
-        y = 20
         background(0)
         rect(x, y, 5, 5)
         fill(225)
-        def gravity():
-            y = y + 0.0981
-            
-        def keyPressed():
+    moving_lines()
+    moving_stars()    
+    def keyPressed():
             global x
             global y
             if (key == CODED):
@@ -154,7 +151,18 @@ def instructions_screen():
           if mousePressed:
               if mouseX > 25 and mouseX < 93 and mouseY > 30 and mouseY < 75:
                 action = 'menu'
-          moving_lines()
+          stroke(255)
+          fill(0)
+          rect( 100, 140, 600, 205)
+          fill(255)
+          textSize(20)
+          text("HOW TO PLAY : " , 120,165)
+          textSize(15)
+          text("-  PRESS & HOLD THE UP ARROW KEY TO THRUST", 135, 200)
+          text("-  PRESS & HOLD THE RIGHT ARROW KEY TO ROTATE CLOCKWISE", 135, 230)
+          text("-  PRESS & HOLD THE LEFT ARROW KEY TO ROTATE COUNTER CLOCKWISE",135, 260)
+          text("-  PRESS & HOLD THE DOWN ARROW KEY TO DO NOTHING", 135, 290)
+          text("-  PRESS THE SPACE BAR TO PAUSE DURING A GAME", 135, 320)
           moving_stars()
             
   
